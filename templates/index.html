@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Repayment API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <style>
+input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=submit] {
+  width: 35%;
+  background-color: #663399;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+div {
+  border-radius: 5px;
+  background-color: #8598cc;
+  padding: 20px;
+}
+</style>
+  
+</head>
+
+<body>
+ <div class="login" align="center">
+	<h2>Loan Repayment Analysis</h2>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+        <br>  
+        {{ prediction_text }}
+        <br>
+    	<input type="text" name="credit.policy" placeholder="Credit Policy" required="required" /><br>
+    	<input type="text" name="int.rate" placeholder="Interest Rate" required="required" /><br>
+    	<input type="text" name="installment" placeholder="Installment" required="required" /><br>
+    	<input type="text" name="log.annual.inc" placeholder="Log Annual Income" required="required" /><br>
+    	<input type="text" name="dti" placeholder="DTI" required="required" /><br>
+    	<input type="text" name="fico" placeholder="FICO" required="required" /><br>
+    	<input type="text" name="days.with.cr.line" placeholder="Credit Line" required="required" /><br>
+        <input type="text" name="revol.bal" placeholder="Revolving Balance" required="required" /><br>
+        <input type="text" name="revol.util" placeholder="Revol Utility" required="required" /><br>
+        <input type="text" name="inq.last.6mths" placeholder="Inquiries at last 6 months" required="required" /><br>
+        <input type="text" name="delinq.2yrs" placeholder="Delinquency in 2 years" required="required" /><br>
+        <input type="text" name="pub.rec" placeholder="Public records" required="required" /><br>
+        <input type="text" name="purpose" placeholder="Purpose" required="required" /><br>
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+ </div>
+
+
+</body>
+</html>
