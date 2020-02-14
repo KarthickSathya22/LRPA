@@ -102,7 +102,7 @@ def predict_api():
             output = 'Not Pay'
     
         results.append(output)
-    return jsonify(result:results)
+    return jsonify(result=results)
 
 
 if __name__ == "__main__":
