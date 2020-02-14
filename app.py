@@ -9,7 +9,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 def home():
     return render_template('index.html')
 
-@app.route('/predict',methods=['POST'])
+@app.route('/predict',methods=['POST','GET'])
 def predict():
     '''
     For rendering results on HTML GUI
@@ -57,7 +57,7 @@ def predict():
 
 
 # creating predict url and only allowing post requests.
-@app.route('/predict_api', methods=['POST'])
+@app.route('/predict_api', methods=['POST','GET'])
 def predict_api():
     # Get data from Post request
     data = request.get_json()
